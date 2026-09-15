@@ -50,7 +50,7 @@ public class DrivingLicince {
             obj_LangType1.selectByVisibleText("Marathi");
 
             Thread.sleep(1000);
-            
+
             obj_clickSubmit.click();
             Thread.sleep(3000);
 
