@@ -1,17 +1,25 @@
-package DriverHtml1DrivingLic;
+package Day2.DAY2DRIVlic;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class DrivinginFirefoxdriver {
+import java.util.Set;
+
+public class DrivingLicWindowHandle {
+
+
     public static void main(String[] args) {
         WebDriver Loc_driver = new FirefoxDriver();
 
         try {
             Loc_driver.get("file:///C:/Users/CCST/Desktop/Selanium101/DriverFileGiven/TestcasesClassAssignment-drivingLicenseUI.html");
+
+            // Parent handel
+
+            String parenthandel = Loc_driver.getWindowHandle();
+
 
             Thread.sleep(1000);
 
@@ -41,7 +49,32 @@ public class DrivinginFirefoxdriver {
             obj_clickSubmit.click();
             Thread.sleep(3000);
 
+           // get windi=ows handels
+            Set<String> allWindows = Loc_driver.getWindowHandles();
 
+
+            for (String windowhandel : allWindows){
+                System.out.println("windows handel dec "+ windowhandel);
+
+                if (!windowhandel.equals(parenthandel)){
+                    Loc_driver.switchTo().window(windowhandel);
+                    String NewWindow = Loc_driver.getWindowHandle();
+                    System.out.println("windows handel dec "+ windowhandel);
+                    break;
+                }
+            }
+
+
+
+            String actulUrl = Loc_driver.getCurrentUrl();
+
+            if (actulUrl.contains("welcome.html")){
+                System.out.println("PASS : URL Verified" + actulUrl);
+            }else {
+                System.out.println("FAILED : URL Missmatch" + actulUrl);
+            }
+
+            System.out.println(Loc_driver.getTitle());
 
         }catch (Exception e){
             e.printStackTrace();
@@ -51,5 +84,4 @@ public class DrivinginFirefoxdriver {
         }
     }
 }
-
 

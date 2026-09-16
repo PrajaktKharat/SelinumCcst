@@ -1,4 +1,4 @@
-package DriverHtml1DrivingLic;
+package Day1.DriverHtml1DrivingLic;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

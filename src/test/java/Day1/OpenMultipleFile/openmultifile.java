@@ -1,4 +1,4 @@
-package OpenMultipleFile;
+package Day1.OpenMultipleFile;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
